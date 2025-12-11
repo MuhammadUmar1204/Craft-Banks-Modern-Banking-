@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Craft Banks — Modern Banking</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui;background:linear-gradient(135deg,rgba(255,240,235,0.8),rgba(255,230,220,0.8),rgba(250,225,210,0.8));background-size:400% 400%;animation:bgMove 22s ease infinite;color:#222;}
+    @keyframes bgMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    
+    @media(max-width: 768px){
+    .menu-toggle { display: block; }
+    .nav-links { display: none; flex-direction: column; background: rgba(0,0,0,0.8); position:absolute; top:80px; right:0; padding:20px; border-radius:8px; }
+    .nav-links a { display:block; margin:10px 0; color:#fff; }
+     }
+    header{position:fixed;top:0;left:0;right:0;height:80px;display:flex;align-items:center;justify-content:space-between;padding:12px 30px;background:rgba(255,255,255,0.4);backdrop-filter:blur(10px);border-bottom:1px solid #fff5;z-index:50}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:52px;width:52px;border-radius:12px}
+    .brand h1{font-size:1.4rem;color:#3a2b2b;font-weight:800}
+   
+    nav a{margin:0 10px;font-weight:600;color:#3c2b2b;}
+   nav a:hover {
+    color: #ffffff;
+    background-color: #349b85;
+    border-radius: 6px;
+}
+    .section{padding:80px 6vw}
+    .section h3{font-size:2rem;color:#4a2e2e;margin-bottom:20px}
+    .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 20px;
+}
+
+    .card {
+  background: rgba(255,255,255,0.6);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+  backdrop-filter: blur(8px);
+    }
+
+    footer{padding:40px 6vw;text-align:center;background:rgb(34, 0, 0);color:#fffdfd;font-weight:600;margin-top:60px;border-top:1px solid #fff5}
+  .moving-cards-section {
+    width: 100%;
+    padding: 40px 0;
+    text-align: center;
+}
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.nav-links {
+  display: flex;
+  gap: 12px;
+}
+.cards-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #f8f2ed; /* Lightest reddish-brown shade (0.8%) */
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.cards-row {
+    width: 1280px;
+    height: 260px;
+    margin: 30px auto;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img {
+    width: 380px;
+    height: 220px;
+    margin: 0 10px;
+    border-radius: 18px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+}
+.card-img:hover {
+    transform: scale(1.07);
+}
+.cards-row::-webkit-scrollbar { display: none; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <img src="Logo.png" alt="Logo" />
+    <h1>The Craft Banks</h1>
+  </div>
+  <nav>
+    <div style="color: #349b85;" class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="nav-links">
+    <a href="#accounts">Accounts</a>
+    <a href="#cards">Cards</a>
+    <a href="#loans">Loans</a>
+    <a href="#islamic">Islamic Banking</a>
+    <a href="#digital">Digital Banking</a>
+    <a href="#branches">Branch Locator</a>
+  </nav>
+</header>
+
+<section class="hero" style="position:relative;overflow:hidden;height:420px;display:flex;align-items:center;justify-content:center;text-align:center;">
+
+    <!-- Video Background -->
+    <video autoplay muted loop playsinline style="
+        position:absolute;
+        top:50%;
+        left:50%;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        transform:translate(-50%,-50%);
+        z-index:-1;
+        opacity:0.82;
+    ">
+        <source src="background.mp4" type="video/mp4">
+    </video>
+  <div style="text-align: center;">
+  <h1 style="
+        font-size:100px;
+        text-align: center;
+        font-weight:800;
+        color:#3a0000e3;
+        text-shadow:0 2px 6px #ffffff;
+        margin-bottom:15px;
+        line-height:1.2;
+    ">
+        The Craft Banks 
+    </h1>
+
+    <h2 style="
+        text-align: center;
+        font-size:24px;
+        font-weight:500;
+        color:#ffffff;
+        text-shadow:0 1px 4px #00000070;
+        line-height:1.4;
+    ">
+       🏡 Your Future, 💰 Your Money — Reinvented 
+    </h2>
+  </div>
+</section>
+<!-- Premium Cards Section With Animated Background -->
+<!-- VIP Premium Cards Section -->
+<section style="position: relative; padding: 20px 0; text-align: center; overflow: hidden; background:#0a0a0a;">
+
+  <!-- Animated Background Layer -->
+  <div style="
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background: radial-gradient(circle at center, rgba(255,80,80,0.15), rgba(0,0,0,0.95));
+      animation:pulseBG 6s ease-in-out infinite alternate;
+      z-index:-1;
+  "></div>
+
+  <h1 style="
+      font-size:48px;
+      font-weight:800;
+      letter-spacing:2px;
+      color:white;
+      text-transform:uppercase;
+      margin:0;
+      text-shadow:0 0 10px rgba(255,255,255,0.4), 0 0 20px rgba(255,0,0,0.4);
+      animation:glowTitle 3s ease-in-out infinite alternate;
+      line-height:1.1;
+  ">
+      VIP Premium Cards
+  </h1>
+
+  <style>
+    @keyframes pulseBG {
+        0% { filter: blur(0px) brightness(1); }
+        100% { filter: blur(5px) brightness(1.2); }
+    }
+    @keyframes glowTitle {
+        0% { text-shadow:0 0 10px rgba(255,80,80,0.7), 0 0 20px rgba(255,20,20,0.4); }
+        100% { text-shadow:0 0 20px rgba(255,0,0,0.9), 0 0 40px rgba(255,50,50,0.6); }
+    }
+  </style>
+
+</section>
+
+<!-- MOVING CARDS SECTION -->
+<section class="moving-cards-section">
+    <h2 class="cards-title" style="font-size: medium; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Our Latest Highlights</h2>
+
+    <!-- Row 1 -->
+    <div class="cards-row" id="row1">
+        <img src="Card1.png" class="card-img">
+        <img src="Card2.png" class="card-img">
+        <img src="Card3.png" class="card-img">
+    </div>
+
+    <!-- Row 2 -->
+    <div class="cards-row" id="row2">
+        <img src="Card7.png" class="card-img">
+        <img src="Card8.png" class="card-img">
+        <img src="Card9.png" class="card-img">
+    </div>
+</section>
+
+<section id="accounts" class="section">
+  <h3>Personal & Business Accounts</h3>
+  <div class="grid">
+    <div class="card"><h4>Savings Account</h4><p>The accounts offer cash bonuses, requiring large direct deposits, or high APY on balances, usually demanding direct deposit to qualify.</p></div>
+    <div class="card"><h4>Current Account</h4><p>It is designed for frequent, non-interest-earning transactions, providing easy access to funds via checks and cards, often used by businesses.</p></div>
+    <div class="card"><h4>Business Account</h4><p>Business accounts separate company finances, manage day-to-day transactions, save reserves, and facilitate electronic payments; watch for fees and transaction limits.</p></div>
+  </div>
+</section>
+<!-- Minimal Responsive Animated Image Section -->
+<section class="hero-section">
+  <img src="Accounts.png" class="hero-image">
+</section>
+
+<style>
+/* Section Container */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b0c10;
+}
+
+/* Image Animation */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: smoothFloat 16s ease-in-out infinite alternate;
+  transform-origin: center;
+  filter: brightness(1.05) saturate(1.1);
+  transition: filter 0.3s ease;
+}
+
+/* Slight hover effect (premium touch) */
+.hero-image:hover {
+  filter: brightness(1.15) saturate(1.2);
+}
+
+/* Cleaner Animation */
+@keyframes smoothFloat {
+  0%   { transform: scale(1.00) translateY(0); }
+  50%  { transform: scale(1.03) translateY(-10px); }
+  100% { transform: scale(1.00) translateY(0); }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .hero-section { height: 450px; }
+}
+@media (max-width: 768px) {
+  .hero-section { height: 360px; }
+}
+@media (max-width: 480px) {
+  .hero-section { height: 260px; }
+}
+</style>
+
+
+<section id="cards" class="section">
+  <h3>Debit & Credit Cards</h3>
+  <div class="grid">
+    <div class="card"><h4>Debit Cards</h4><p>💳 Debit Cards instantly deduct funds from your bank account for purchases and cash withdrawals, offering a convenient, debt-free way to spend your own money. 💰</p></div>
+    <div class="card"><h4>Credit Cards</h4><p>💳 Credit Cards let you borrow money up to a limit and pay later. Build credit, earn rewards, but carry a balance and you'll pay high APR interest. 💸</p></div>
+  </div>
+</section>
+<!-- Minimal Responsive Animated Image Section -->
+<section class="hero-section">
+  <img src="Card.png" class="hero-image">
+</section>
+
+<style>
+/* Section Container */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b0c10;
+}
+
+/* Image Animation */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: smoothFloat 16s ease-in-out infinite alternate;
+  transform-origin: center;
+  filter: brightness(1.05) saturate(1.1);
+  transition: filter 0.3s ease;
+}
+
+/* Slight hover effect (premium touch) */
+.hero-image:hover {
+  filter: brightness(1.15) saturate(1.2);
+}
+
+/* Cleaner Animation */
+@keyframes smoothFloat {
+  0%   { transform: scale(1.00) translateY(0); }
+  50%  { transform: scale(1.03) translateY(-10px); }
+  100% { transform: scale(1.00) translateY(0); }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .hero-section { height: 450px; }
+}
+@media (max-width: 768px) {
+  .hero-section { height: 360px; }
+}
+@media (max-width: 480px) {
+  .hero-section { height: 260px; }
+}
+</style>
+
+<section id="loans" class="section">
+  <h3>Loans</h3>
+  <div class="grid">
+    <div class="card"><h4>Car Loan</h4><p>🚗 Car Loans are secured debt used to finance a vehicle purchase. Terms usually range from 24-84 months with the car itself serving as collateral, and rates depend on credit score and loan length. 🛣️</p></div>
+    <div class="card"><h4>Personal Loan</h4><p>💸 Personal Loans give a fixed lump sum for any use, repaid in fixed monthly installments over a set term. Usually unsecured, approval depends on your credit history. ✅</p></div>
+  </div>
+</section>
+<section class="hero-section">
+  <img src="Loan.png" class="hero-image">
+</section>
+
+<style>
+/* Section Container */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b0c10;
+}
+
+/* Image Animation */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: smoothFloat 16s ease-in-out infinite alternate;
+  transform-origin: center;
+  filter: brightness(1.05) saturate(1.1);
+  transition: filter 0.3s ease;
+}
+
+/* Slight hover effect (premium touch) */
+.hero-image:hover {
+  filter: brightness(1.15) saturate(1.2);
+}
+
+/* Cleaner Animation */
+@keyframes smoothFloat {
+  0%   { transform: scale(1.00) translateY(0); }
+  50%  { transform: scale(1.03) translateY(-10px); }
+  100% { transform: scale(1.00) translateY(0); }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .hero-section { height: 450px; }
+}
+@media (max-width: 768px) {
+  .hero-section { height: 360px; }
+}
+@media (max-width: 480px) {
+  .hero-section { height: 260px; }
+}
+</style>
+
+<section id="islamic" class="section">
+  <h3>Islamic Banking</h3>
+  <div class="grid">
+    <div class="card"><h4>Islamic Savings</h4><p>🕌 Islamic Savings are Shariah-compliant accounts that share profits from Halal investments (Mudarabah), avoiding prohibited interest (Riba) and loss is borne by the investor. 🤝</p></div>
+    <div class="card"><h4>Islamic Current</h4><p>🕌 Islamic Current Accounts are "Non-Profit Bearing Accounts" for daily transactions, based on the Qard (interest-free loan) contract, ensuring Shariah-compliance and Riba avoidance. ✅</p></div>
+  </div>
+</section>
+<!-- Minimal Responsive Animated Image Section -->
+<section class="hero-section">
+  <img src="Islamic.png" class="hero-image">
+</section>
+
+<style>
+/* Section Container */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b0c10;
+}
+
+/* Image Animation */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: smoothFloat 16s ease-in-out infinite alternate;
+  transform-origin: center;
+  filter: brightness(1.05) saturate(1.1);
+  transition: filter 0.3s ease;
+}
+
+/* Slight hover effect (premium touch) */
+.hero-image:hover {
+  filter: brightness(1.15) saturate(1.2);
+}
+
+/* Cleaner Animation */
+@keyframes smoothFloat {
+  0%   { transform: scale(1.00) translateY(0); }
+  50%  { transform: scale(1.03) translateY(-10px); }
+  100% { transform: scale(1.00) translateY(0); }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .hero-section { height: 450px; }
+}
+@media (max-width: 768px) {
+  .hero-section { height: 360px; }
+}
+@media (max-width: 480px) {
+  .hero-section { height: 260px; }
+}
+</style>
+
+<section id="digital" class="section">
+  <h3>Digital Banking</h3>
+  <div class="grid">
+    <div class="card"><h4>Mobile App</h4><p>📱 Mobile Apps are secure, 24/7 financial hubs in your pocket. They allow instant transfers, bill payments, check deposits, and card management with biometric security. 🔒</p></div>
+    <div class="card"><h4>QR Payments</h4><p>📱 QR Code Payments initiate fast, contactless transactions when you scan a merchant’s unique Quick Response code with your mobile banking or payment app. 💸</p></div>
+  </div>
+</section>
+<!-- Minimal Responsive Animated Image Section -->
+<section class="hero-section">
+  <img src="Digital.png" class="hero-image">
+</section>
+
+<style>
+/* Section Container */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b0c10;
+}
+
+/* Image Animation */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: smoothFloat 16s ease-in-out infinite alternate;
+  transform-origin: center;
+  filter: brightness(1.05) saturate(1.1);
+  transition: filter 0.3s ease;
+}
+
+/* Slight hover effect (premium touch) */
+.hero-image:hover {
+  filter: brightness(1.15) saturate(1.2);
+}
+
+/* Cleaner Animation */
+@keyframes smoothFloat {
+  0%   { transform: scale(1.00) translateY(0); }
+  50%  { transform: scale(1.03) translateY(-10px); }
+  100% { transform: scale(1.00) translateY(0); }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .hero-section { height: 450px; }
+}
+@media (max-width: 768px) {
+  .hero-section { height: 360px; }
+}
+@media (max-width: 480px) {
+  .hero-section { height: 260px; }
+}
+</style>
+
+<section id="branches" class="section">
+  <h3>Branch & ATM Locator</h3>
+  <p>A Branch & ATM Locator is a digital tool that helps you find a bank's physical locations 🏦 and nearby ATMs 💳. It provides addresses, hours, services offered, and turn-by-turn directions.</p>
+</section>
+<section class="hero-section">
+  <img src="Locator.png" class="hero-image">
+</section>
+
+<style>
+/* Section Container */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b0c10;
+}
+
+/* Image Animation */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: smoothFloat 16s ease-in-out infinite alternate;
+  transform-origin: center;
+  filter: brightness(1.05) saturate(1.1);
+  transition: filter 0.3s ease;
+}
+
+/* Slight hover effect (premium touch) */
+.hero-image:hover {
+  filter: brightness(1.15) saturate(1.2);
+}
+
+/* Cleaner Animation */
+@keyframes smoothFloat {
+  0%   { transform: scale(1.00) translateY(0); }
+  50%  { transform: scale(1.03) translateY(-10px); }
+  100% { transform: scale(1.00) translateY(0); }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .hero-section { height: 450px; }
+}
+@media (max-width: 768px) {
+  .hero-section { height: 360px; }
+}
+@media (max-width: 480px) {
+  .hero-section { height: 260px; }
+}
+</style>
+
+<footer>
+  © <span id="year"></span> The Craft Banks — Inspired by Global Islamic Standards.
+</footer>
+
+<script>
+  function toggleMenu() {
+    const nav = document.querySelector('.nav-links');
+    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  const row1Images = [
+      "Card1.png","Card2.png","Card3.png",
+      "Card4.png","Card5.png","Card6.png"
+  ];
+
+  const row2Images = [
+      "Card7.png","Card8.png","Card9.png","Card10.png",
+      "Card11.png","Card12.png","Card13.png","Card14.png"
+  ];
+
+  function animateRow(rowId, images) {
+      const row = document.getElementById(rowId);
+
+      setInterval(() => {
+          row.style.transition = "transform 0.6s ease";
+          row.style.transform = "translateX(-400px)";
+
+          setTimeout(() => {
+              row.style.transition = "none";
+              row.style.transform = "translateX(0)";
+
+              row.removeChild(row.firstElementChild);
+
+              const nextImg = document.createElement("img");
+              nextImg.src = images.push(images.shift()) ? images[images.length - 1] : "";
+              nextImg.className = "card-img";
+
+              row.appendChild(nextImg);
+
+          }, 600);
+      }, 2300);
+  }
+
+  // Start Animation
+  animateRow("row1", [...row1Images]);  
+  animateRow("row2", [...row2Images]);
+
+  // Set current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+  </body>
+</html>
